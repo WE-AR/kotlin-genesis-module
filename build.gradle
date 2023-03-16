@@ -1,0 +1,23 @@
+buildscript {
+	dependencies {
+		classpath "io.github.gradle-nexus:publish-plugin:1.1.0"
+	}
+}
+
+plugins {
+	id 'org.jetbrains.kotlin.jvm' version '1.8.10'
+	id 'java-library'
+}
+
+repositories {
+	mavenCentral()
+}
+
+apply plugin: 'io.github.gradle-nexus.publish-plugin'
+apply from: "${rootDir}/scripts/publish-maven.gradle"
+apply from: 'publish.gradle'
+
+
+tasks.jar {
+	archiveFileName.set("${PUBLISH_ARTIFACT_ID}-${PUBLISH_VERSION}.jar")
+}
