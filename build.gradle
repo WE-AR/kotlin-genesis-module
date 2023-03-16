@@ -9,6 +9,10 @@ plugins {
 	id 'java-library'
 }
 
+dependencies {
+	implementation("commons-codec:commons-codec:1.15")
+}
+
 repositories {
 	mavenCentral()
 }
